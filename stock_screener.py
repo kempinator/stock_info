@@ -3,12 +3,12 @@ import pandas as pd
 import requests
 
 params = {
-  'access_key': '701faa54c5d092bd4e2f9b31d601a2c7'                         
+  'access_key': '701faa54c5d092bd4e2f9b31d601a2c7'          #appreciate this would normally not be publicized, but it's a free account and this is listed privately                      
 }
                             
-ticker_dict = []
-watch_list = ['MSFT','AMD','NVDA','AMZN','TSLA','CRSR']
-stock_data = []
+ticker_dict = []                                            #initialising list for user-provided stock tickers 
+watch_list = ['MSFT','AMD','NVDA','AMZN','TSLA','CRSR']     #default watchlist created, which can be used in place of user giving same companies over and over
+stock_data = []                                             #set of lists to contain data from differing dates, used to calculate performance over time
 yest_data = []
 week_data = []
 month_data = []
@@ -17,17 +17,16 @@ def create_ticker_list():
     
     
     while True:
-        ticker = input("Enter ticker - ").upper()
-        if ticker.isspace():
+        ticker = input("Enter ticker - ").upper()     #ask for ticker from user
+                                
+        if ticker == '' or ticker.isspace():                       #ends when blank space is used
+          cont = input('Are you finished? Enter Y/N').upper()
+          if cont == 'Y':
             break
-        elif ticker == '':
-            cont = input('Are you finished? Enter Y/N').upper()
-            if cont == 'Y':
-                break
-            elif cont =='N':
-                break
-            else:
-                continue
+          elif cont =='N':
+            continue
+          else:
+            continue
         elif ticker == 'WATCHLIST':
             for i in watch_list:
                 if i in ticker_dict:
