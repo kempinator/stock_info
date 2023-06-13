@@ -63,7 +63,7 @@ for ticker in ticker_dict:
     try:
         
       api_result = requests.get(f'http://api.marketstack.com/v1/tickers/{ticker}/eod',params)   #retrieve data from marketstack using list of tickers
-      api_response = api_result.json()                      #convert each in string form
+      api_response = api_result.json()                      #convert each to string form
       stock_data.append(api_response['data']['eod'][0])     #pluck latest trading day data
       yest_data.append(api_response['data']['eod'][1])      #Day before above trading day data
       week_data.append(api_response['data']['eod'][6])      #week prior
