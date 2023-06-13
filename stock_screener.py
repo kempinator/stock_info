@@ -3,7 +3,7 @@ import pandas as pd
 import requests
 
 params = {
-  'access_key': '701faa54c5d092bd4e2f9b31d601a2c7'          #appreciate this would normally not be publicized, but it's a free account and this is listed privately                      
+  'access_key': '701faa54c5d092bd4e2f9b31d601a2c7'          #appreciate this would normally not be publicized, but it's a free account and is limited in access                      
 }
                             
 ticker_dict = []                                            #initialising list for user-provided stock tickers (started life as a dictionary)
